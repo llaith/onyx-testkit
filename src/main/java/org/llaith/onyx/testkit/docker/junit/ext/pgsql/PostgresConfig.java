@@ -1,11 +1,11 @@
-package llaithseed.testkit.docker.junit.ext.pgsql;
+package org.llaith.onyx.testkit.docker.junit.ext.pgsql;
 
-import llaithseed.testkit.docker.junit.DockerConfig;
+import org.llaith.onyx.testkit.docker.junit.DockerConfig;
 
 import static java.util.Objects.requireNonNull;
-import static llaithseed.testkit.docker.junit.GenericWaitingStrategies.waitForPort;
-import static llaithseed.testkit.docker.junit.ext.pgsql.WaitForPostgresStrategy.waitForSelect;
-import static llaithseed.testkit.util.TestUtil.isBlankOrNull;
+import static org.llaith.onyx.testkit.docker.junit.GenericWaitingStrategies.waitForPort;
+import static org.llaith.onyx.testkit.docker.junit.ext.pgsql.WaitForPostgresStrategy.waitForSelect;
+import static org.llaith.onyx.testkit.util.TestUtil.isBlankOrNull;
 
 /**
  *

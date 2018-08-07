@@ -1,8 +1,8 @@
-# llaithseed-testkit
+# onyx-testkit
 
 A junit rule to run docker containers, based on: https://github.com/geowarin/docker-junit-rule
 
-[![Build Status](https://travis-ci.org/llaith/llaithseed-testkit.svg)](https://travis-ci.org/llaith/llaithseed-testkit)
+[![Build Status](https://travis-ci.org/llaith/onyx-testkit.svg)](https://travis-ci.org/llaith/onyx-testkit)
 
 ## Usage
 
@@ -13,7 +13,7 @@ import com.rabbitmq.client.ConnectionFactory;
 import org.junit.ClassRule;
 import org.junit.Test;
 
-import static llaithseed.testkit.docker.junit.GenericWaitingStrategies.waitForLog;
+import static org.llaith.onyx.testkit.docker.junit.GenericWaitingStrategies.waitForLog;
 
 public class RabbitIntegrationIT {
 
@@ -125,9 +125,9 @@ Add the following to your `pom.xml`:
 ...
 
 <dependency>
-    <groupId>llaithseed</groupId>
-    <artifactId>llaithseed-testkit</artifactId>
-    <version>1.0-alpha1</version>
+    <groupId>org.llaith.onyx</groupId>
+    <artifactId>onyx-testkit</artifactId>
+    <version>1.0</version>
     <scope>test</scope>
 </dependency>
 ```

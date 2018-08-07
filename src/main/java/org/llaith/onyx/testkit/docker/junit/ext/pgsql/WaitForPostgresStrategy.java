@@ -1,8 +1,8 @@
-package llaithseed.testkit.docker.junit.ext.pgsql;
+package org.llaith.onyx.testkit.docker.junit.ext.pgsql;
 
-import llaithseed.testkit.docker.junit.GenericWaitingStrategies;
+import org.llaith.onyx.testkit.docker.junit.GenericWaitingStrategies;
 import org.slf4j.Logger;
-import llaithseed.testkit.docker.junit.WaitingStrategy;
+import org.llaith.onyx.testkit.docker.junit.WaitingStrategy;
 
 import java.util.Arrays;
 

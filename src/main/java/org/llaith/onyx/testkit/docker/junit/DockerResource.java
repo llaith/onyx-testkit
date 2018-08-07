@@ -1,4 +1,4 @@
-package llaithseed.testkit.docker.junit;
+package org.llaith.onyx.testkit.docker.junit;
 
 import com.spotify.docker.client.DefaultDockerClient;
 import com.spotify.docker.client.DockerClient;
@@ -6,14 +6,14 @@ import com.spotify.docker.client.exceptions.DockerException;
 import com.spotify.docker.client.messages.ContainerCreation;
 import com.spotify.docker.client.messages.ContainerInfo;
 import com.spotify.docker.client.messages.PortBinding;
-import llaithseed.testkit.util.TestUtil;
+import org.llaith.onyx.testkit.util.TestUtil;
 import org.junit.rules.ExternalResource;
 import org.slf4j.Logger;
 
 import java.util.List;
 
 import static java.util.Objects.requireNonNull;
-import static llaithseed.testkit.util.TestUtil.nullToEmpty;
+import static org.llaith.onyx.testkit.util.TestUtil.nullToEmpty;
 import static org.slf4j.LoggerFactory.getLogger;
 
 /**

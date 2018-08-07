@@ -1,10 +1,10 @@
-package llaithseed.testkit.docker.junit;
+package org.llaith.onyx.testkit.docker.junit;
 
 import com.rabbitmq.client.ConnectionFactory;
 import org.junit.ClassRule;
 import org.junit.Test;
 
-import static llaithseed.testkit.docker.junit.GenericWaitingStrategies.waitForLog;
+import static org.llaith.onyx.testkit.docker.junit.GenericWaitingStrategies.waitForLog;
 
 public class RabbitIntegrationIT {
 

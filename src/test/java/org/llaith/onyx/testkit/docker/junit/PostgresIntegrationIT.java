@@ -1,16 +1,16 @@
-package llaithseed.testkit.docker.junit;
+package org.llaith.onyx.testkit.docker.junit;
 
 import org.junit.ClassRule;
 import org.junit.Test;
-import llaithseed.testkit.docker.junit.ext.pgsql.PostgresConfig;
-import llaithseed.testkit.docker.junit.ext.pgsql.PostgresResource;
+import org.llaith.onyx.testkit.docker.junit.ext.pgsql.PostgresConfig;
+import org.llaith.onyx.testkit.docker.junit.ext.pgsql.PostgresResource;
 
 import java.sql.ResultSet;
 
 import static junit.framework.TestCase.assertTrue;
-import static llaithseed.testkit.docker.junit.GenericWaitingStrategies.waitForPort;
-import static llaithseed.testkit.docker.junit.ext.pgsql.WaitForPostgresStrategy.waitForSelect;
-import static llaithseed.testkit.util.TestUtil.rethrow;
+import static org.llaith.onyx.testkit.docker.junit.GenericWaitingStrategies.waitForPort;
+import static org.llaith.onyx.testkit.docker.junit.ext.pgsql.WaitForPostgresStrategy.waitForSelect;
+import static org.llaith.onyx.testkit.util.TestUtil.rethrow;
 
 public class PostgresIntegrationIT {
 

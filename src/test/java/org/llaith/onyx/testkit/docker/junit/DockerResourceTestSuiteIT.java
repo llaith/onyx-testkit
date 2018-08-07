@@ -1,4 +1,4 @@
-package llaithseed.testkit.docker.junit;
+package org.llaith.onyx.testkit.docker.junit;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;

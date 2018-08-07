@@ -1,4 +1,4 @@
-package llaithseed.testkit.docker.junit;
+package org.llaith.onyx.testkit.docker.junit;
 
 import org.junit.Assert;
 import org.junit.ClassRule;
@@ -9,7 +9,7 @@ import org.junit.runner.notification.Failure;
 
 import java.util.List;
 
-import static llaithseed.testkit.docker.junit.GenericWaitingStrategies.waitForLog;
+import static org.llaith.onyx.testkit.docker.junit.GenericWaitingStrategies.waitForLog;
 import static org.junit.Assert.assertEquals;
 
 /**

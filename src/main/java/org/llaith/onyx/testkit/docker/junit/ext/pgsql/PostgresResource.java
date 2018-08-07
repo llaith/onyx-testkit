@@ -1,7 +1,7 @@
-package llaithseed.testkit.docker.junit.ext.pgsql;
+package org.llaith.onyx.testkit.docker.junit.ext.pgsql;
 
-import llaithseed.testkit.docker.junit.DockerResource;
-import llaithseed.testkit.util.TestUtil;
+import org.llaith.onyx.testkit.docker.junit.DockerResource;
+import org.llaith.onyx.testkit.util.TestUtil;
 import org.slf4j.Logger;
 
 import java.sql.Connection;

@@ -8,9 +8,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>llaithseed</groupId>
-    <artifactId>llaithseed-testkit</artifactId>
-    <version>1.0-alpha1</version>
+    <groupId>org.llaith.onyx</groupId>
+    <artifactId>onyx-testkit</artifactId>
+    <version>1.0</version>
 
     <properties>
         <!-- override this to perform integration tests -->
@@ -403,15 +403,16 @@
     </build>
 
     <scm>
-        <url>git@github.com:llaith/llaithseed-testkit.git</url>
-        <connection>git@github.com:llaith/llaithseed-testkit.git</connection>
-        <developerConnection>git@github.com:llaith/llaithseed-testkit.git</developerConnection>
+        <url>git@github.com:llaith/onyx-testkit.git</url>
+        <connection>git@github.com:llaith/onyx-testkit.git</connection>
+        <developerConnection>git@github.com:llaith/onyx-testkit.git</developerConnection>
     </scm>
 
     <distributionManagement>
         <repository>
-            <id>bintray-llaithseed</id>
-            <url>https://api.bintray.com/maven/llaith/llaithseed/llaithseed-testkit;publish=1</url>
+            <id>bintray-llaith-onyx</id>
+            <name>llaith-onyx</name>
+            <url>https://api.bintray.com/maven/llaith/onyx/onyx-testkit/;publish=1</url>
         </repository>
     </distributionManagement>    
     

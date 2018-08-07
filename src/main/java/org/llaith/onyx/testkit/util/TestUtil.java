@@ -1,4 +1,4 @@
-package llaithseed.testkit.util;
+package org.llaith.onyx.testkit.util;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;

@@ -1,4 +1,4 @@
-package llaithseed.testkit.docker.junit;
+package org.llaith.onyx.testkit.docker.junit;
 
 import com.spotify.docker.client.DockerClient;
 import com.spotify.docker.client.LogStream;
@@ -13,9 +13,9 @@ import java.util.Arrays;
 import static com.spotify.docker.client.DockerClient.LogsParam.follow;
 import static com.spotify.docker.client.DockerClient.LogsParam.stdout;
 import static org.slf4j.LoggerFactory.getLogger;
-import static llaithseed.testkit.util.TestUtil.readStringFromByteBuffer;
-import static llaithseed.testkit.util.TestUtil.rethrow;
-import static llaithseed.testkit.util.TestUtil.rethrowOrReturn;
+import static org.llaith.onyx.testkit.util.TestUtil.readStringFromByteBuffer;
+import static org.llaith.onyx.testkit.util.TestUtil.rethrow;
+import static org.llaith.onyx.testkit.util.TestUtil.rethrowOrReturn;
 
 /**
  *
