@@ -2,7 +2,8 @@
 
 A junit rule to run docker containers, based on: https://github.com/geowarin/docker-junit-rule
 
-[![Build Status](https://travis-ci.org/llaith/onyx-testkit.svg)](https://travis-ci.org/llaith/onyx-testkit)
+[![CircleCI](https://circleci.com/gh/llaith/onyx-testkit/tree/master.svg?style=svg&circle-token=16fbebf80d0c0cf291f9faa970f3ed92a4664c9f)](https://circleci.com/gh/llaith/onyx-testkit/tree/master)
+[![Download](https://api.bintray.com/packages/llaith/onyx/onyx-testkit/images/download.svg) ](https://bintray.com/llaith/onyx/onyx-testkit/_latestVersion)
 
 ## Usage
 

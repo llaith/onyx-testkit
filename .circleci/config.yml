@@ -31,5 +31,5 @@ jobs:
           key: v1-dependencies-{{ checksum "pom.xml" }}
         
       # run tests!
-      - run: mvn integration-test deploy
+      - run: mvn -s conf/settings.xml integration-test deploy
 
