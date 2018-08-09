@@ -32,4 +32,6 @@ jobs:
         
       # run tests!
       - run: mvn -s conf/settings.xml integration-test deploy
-
+      
+      # run sonar!
+      - run: mvn sonar:sonar -Dsonar.organization=llaith-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=472ddb585abd168d7191ac1db7b896b23fe5a170

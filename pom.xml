@@ -403,7 +403,7 @@
     </build>
 
     <scm>
-        <url>git@github.com:llaith/onyx-testkit.git</url>
+        <url>https://github.com/llaith/onyx-testkit</url>
         <connection>git@github.com:llaith/onyx-testkit.git</connection>
         <developerConnection>git@github.com:llaith/onyx-testkit.git</developerConnection>
     </scm>
