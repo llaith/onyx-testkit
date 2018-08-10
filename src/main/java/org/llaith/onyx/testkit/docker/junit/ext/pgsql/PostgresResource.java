@@ -16,7 +16,7 @@ import static org.slf4j.LoggerFactory.getLogger;
  */
 public class PostgresResource extends DockerResource<PostgresConfig,PostgresResource> {
 
-    public static String POSTGRES_DRIVER = "org.postgresql.Driver";
+    private static final String POSTGRES_DRIVER = "org.postgresql.Driver";
 
     private static final Logger logger = getLogger(PostgresResource.class);
 
@@ -94,7 +94,7 @@ public class PostgresResource extends DockerResource<PostgresConfig,PostgresReso
     }
 
     public String getPassword() {
-        return this.config.postgresPassword;
+        return this.config.postgresPass;
     }
 
 }

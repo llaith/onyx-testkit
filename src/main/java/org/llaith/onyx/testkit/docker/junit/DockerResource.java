@@ -6,8 +6,8 @@ import com.spotify.docker.client.exceptions.DockerException;
 import com.spotify.docker.client.messages.ContainerCreation;
 import com.spotify.docker.client.messages.ContainerInfo;
 import com.spotify.docker.client.messages.PortBinding;
-import org.llaith.onyx.testkit.util.TestUtil;
 import org.junit.rules.ExternalResource;
+import org.llaith.onyx.testkit.util.TestUtil;
 import org.slf4j.Logger;
 
 import java.util.List;
@@ -45,15 +45,15 @@ public abstract class DockerResource<C extends DockerConfig<C,R>, R extends Dock
 
             this.config = config;
 
-            logger.debug("Building docker client from env");
+            if (logger.isDebugEnabled()) logger.debug("Building docker client from env");
             this.client = DefaultDockerClient
                     .fromEnv()
                     .build();
 
-            logger.debug("pulling image: " + config.imageName());
+            if (logger.isDebugEnabled()) logger.debug(String.format("pulling image: %s", config.imageName()));
             this.client.pull(config.imageName());
 
-            logger.debug("creating container");
+            if (logger.isDebugEnabled()) logger.debug("creating container");
             this.container = this.client.createContainer(this.config.toConfig());
 
         } catch (Exception e) {
@@ -73,16 +73,14 @@ public abstract class DockerResource<C extends DockerConfig<C,R>, R extends Dock
 
             this.info = this.client.inspectContainer(container.id());
 
-            try {
+            TestUtil.rethrow(
+                    () -> {
 
-                if (this.config.waitingStrategies() != null)
-                    this.config.waitingStrategies().waitForContainer(this.getThis());
+                        if (this.config.waitingStrategies() != null)
+                            this.config.waitingStrategies().waitForContainer(this.getThis());
 
-            } catch (Exception e) {
-
-                throw new ContainerTimeoutException("Docker container never became ready", e);
-
-            }
+                    },
+                    e -> {throw new ContainerTimeoutException("Docker container never became ready", e);});
 
         } catch (Exception e) {
 
@@ -109,8 +107,15 @@ public abstract class DockerResource<C extends DockerConfig<C,R>, R extends Dock
 
             this.client.close();
 
-        } catch (DockerException | InterruptedException e) {
+        } catch (InterruptedException e) {
+
+            Thread.currentThread().interrupt();
+
+            throw new IllegalStateException("Unable to stop/remove docker container (interrupted) for container " + container.id(), e);
+
+        } catch (DockerException e) {
             throw new IllegalStateException("Unable to stop/remove docker container " + container.id(), e);
+
         }
 
     }

@@ -25,8 +25,11 @@ public abstract class DockerConfig<C extends DockerConfig<C,R>, R extends Docker
     List<String> env = new ArrayList<>();
 
     String[] cmd;
-    
+
     WaitingStrategiesImpl<C,R> waitingStrategies;
+
+    @SuppressWarnings("squid:S1313")
+    private static final String INTERNAL_IP = "0.0.0.0";
 
     public C image(String imageName) {
         this.imageName = imageName;
@@ -107,11 +110,11 @@ public abstract class DockerConfig<C extends DockerConfig<C,R>, R extends Docker
     }
 
     public String[] ports() {
-        return this.ports.toArray(new String[this.ports.size()]);
+        return this.ports.toArray(new String[0]);
     }
 
     public String[] env() {
-        return this.env.toArray(new String[this.env.size()]);
+        return this.env.toArray(new String[0]);
     }
 
     public String[] cmd() {
@@ -128,7 +131,7 @@ public abstract class DockerConfig<C extends DockerConfig<C,R>, R extends Docker
                 .stream()
                 .collect(Collectors.toMap(
                         port -> port,
-                        port -> singletonList(PortBinding.randomPort("0.0.0.0"))));
+                        port -> singletonList(PortBinding.randomPort(INTERNAL_IP))));
 
         final HostConfig hostConfig = HostConfig
                 .builder()
@@ -142,7 +145,7 @@ public abstract class DockerConfig<C extends DockerConfig<C,R>, R extends Docker
                 .networkDisabled(false)
                 .exposedPorts(this.ports);
 
-        if (env != null && env.size() > 0) configBuilder.env(env);
+        if (env != null && !env.isEmpty()) configBuilder.env(env);
 
         if (cmd != null && cmd.length > 0) configBuilder.cmd(cmd);
 

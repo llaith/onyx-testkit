@@ -5,6 +5,8 @@ import javax.annotation.Nullable;
 import java.nio.ByteBuffer;
 import java.util.Collections;
 import java.util.Map;
+import java.util.Objects;
+import java.util.function.Consumer;
 
 /**
  *
@@ -32,7 +34,21 @@ public class TestUtil {
 
         } catch (Exception e) {
 
-            throw new RuntimeException(e);
+            throw UncheckedException.wrap(e);
+
+        }
+
+    }
+
+    public static void rethrow(final Block<Exception> block, final Consumer<Exception> err) {
+
+        try {
+
+            block.execute();
+
+        } catch (Exception e) {
+
+            Objects.requireNonNull(err).accept(e);
 
         }
 
@@ -53,7 +69,7 @@ public class TestUtil {
 
         } catch (Exception e) {
 
-            throw new RuntimeException(e);
+            throw UncheckedException.wrap(e);
 
         }
 

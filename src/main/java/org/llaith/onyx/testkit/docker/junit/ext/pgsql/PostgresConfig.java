@@ -21,7 +21,7 @@ public class PostgresConfig extends DockerConfig<PostgresConfig,PostgresResource
         return builder()
                 .image("postgres:9.6")
                 .postgresPort("5432/tcp")
-                .waitFor(60, 6, 10, (wait) -> {
+                .waitFor(60, 6, 10, wait -> {
                     wait.addStrategy(waitForPort("5432/tcp"));
                     wait.addStrategy(waitForSelect("SELECT 1"));
                 });
@@ -30,7 +30,7 @@ public class PostgresConfig extends DockerConfig<PostgresConfig,PostgresResource
 
     String postgresPort; // default postgres is "5432/tcp", but force this to be set for consistency
     String postgresUser = "postgres";
-    String postgresPassword = "";
+    String postgresPass = "";
     String databaseName = "postgres";
 
     public PostgresConfig postgresPort(final String postgresPort) {
@@ -52,7 +52,7 @@ public class PostgresConfig extends DockerConfig<PostgresConfig,PostgresResource
     }
 
     public PostgresConfig postgresPassword(final String postgresPassword) {
-        this.postgresPassword = requireNonNull(postgresPassword);
+        this.postgresPass = requireNonNull(postgresPassword);
         return this;
     }
 
