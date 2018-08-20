@@ -1,0 +1,10 @@
+plugins:
+  sonar-java:
+    enabled: true
+  pmd:
+    enabled: true    
+  checkstyle:
+    enabled: true
+    config:
+          file: ".conf/checkstyle.xml"       
+        
