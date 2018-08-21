@@ -18,18 +18,18 @@ import static java.util.Objects.requireNonNull;
 
 public abstract class DockerConfig<C extends DockerConfig<C,R>, R extends DockerResource<C,R>> {
 
-    String imageName;
+    private String imageName;
 
-    Set<String> ports = new HashSet<>();
+    private Set<String> ports = new HashSet<>();
 
-    List<String> env = new ArrayList<>();
+    private List<String> env = new ArrayList<>();
 
-    String[] cmd;
+    private String[] cmd;
 
-    WaitingStrategiesImpl<C,R> waitingStrategies;
+    private WaitingStrategiesImpl<C,R> waitingStrategies;
 
     @SuppressWarnings("squid:S1313")
-    private static final String INTERNAL_IP = "0.0.0.0";
+    private static final String INTERNAL_IP = "0.0.0.0"; //NOPMD
 
     public C image(String imageName) {
         this.imageName = imageName;

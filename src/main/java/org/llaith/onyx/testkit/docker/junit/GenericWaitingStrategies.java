@@ -1,4 +1,4 @@
-package org.llaith.onyx.testkit.docker.junit;
+package org.llaith.onyx.testkit.docker.junit;//NOPMD
 
 import com.spotify.docker.client.DockerClient;
 import com.spotify.docker.client.LogStream;
@@ -12,24 +12,24 @@ import java.util.Arrays;
 
 import static com.spotify.docker.client.DockerClient.LogsParam.follow;
 import static com.spotify.docker.client.DockerClient.LogsParam.stdout;
-import static org.slf4j.LoggerFactory.getLogger;
 import static org.llaith.onyx.testkit.util.TestUtil.readStringFromByteBuffer;
 import static org.llaith.onyx.testkit.util.TestUtil.rethrow;
 import static org.llaith.onyx.testkit.util.TestUtil.rethrowOrReturn;
+import static org.slf4j.LoggerFactory.getLogger;
 
 /**
  *
  */
-public class GenericWaitingStrategies {
+public class GenericWaitingStrategies {//NOPMD
 
-    private static final Logger logger = getLogger(GenericWaitingStrategies.class);
+    private static final Logger logger = getLogger(GenericWaitingStrategies.class);//NOPMD
 
     public static <C extends DockerConfig<C,R>, R extends DockerResource<C,R>> WaitingStrategy<C,R> waitForLog(
             final String match) {
 
         return (resource) -> {
 
-            logger.debug("waiting for log match on: " + match);
+            logger.debug("waiting for log match on: {}", match);
 
             final LogStream logs = rethrowOrReturn(() -> resource.client.logs(resource.container.id(), follow(), stdout()));
 
@@ -37,11 +37,11 @@ public class GenericWaitingStrategies {
 
                 final String line = readStringFromByteBuffer(logs.next().content());
 
-                logger.trace("Read logger line: " + line);
+                logger.trace("Read logger line: {}", line);
 
                 if (line.contains(match)) {
 
-                    logger.debug("Successfully found log entry of: " + match);
+                    logger.debug("Successfully found log entry of: {}", match);
 
                     break;
 
@@ -58,13 +58,13 @@ public class GenericWaitingStrategies {
 
         return (resource) -> {
 
-            logger.debug("Waiting for port: " + port);
+            logger.debug("Waiting for port: {}", port);
 
             final SocketAddress address = new InetSocketAddress(resource.getContainerHost(), resource.getMappedPort(port));
 
             rethrow(() -> SocketChannel.open(address));
 
-            logger.debug("Successful opened port: " + port);
+            logger.debug("Successful opened port: {}", port);
 
         };
 
@@ -89,15 +89,14 @@ public class GenericWaitingStrategies {
 
             final String execOutput = output.readFully();
 
-            logger.trace("Found result: " + execOutput);
+            logger.trace("Found result: {}", execOutput);
 
-            if (!execOutput.contains(result))
-                throw new IllegalStateException(String.format(
-                        "Expected result :[%s] from command: [%s] not found.",
-                        Arrays.toString(command),
-                        result));
+            if (!execOutput.contains(result)) throw new IllegalStateException(String.format(//NOPMD
+                    "Expected result :[%s] from command: [%s] not found.",
+                    Arrays.toString(command),
+                    result));
 
-            logger.debug("Successful execution of command: " + Arrays.toString(command));
+            logger.debug("Successful execution of command: {}", Arrays.toString(command));
 
 
         });

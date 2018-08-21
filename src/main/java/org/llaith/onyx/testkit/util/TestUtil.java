@@ -13,6 +13,8 @@ import java.util.function.Consumer;
  */
 public class TestUtil {
 
+    private TestUtil() {}
+
     public static RuntimeException wrap(final Throwable t) {
         if (t instanceof Error) throw (Error)t;
         if (t instanceof RuntimeException) return (RuntimeException)t;
