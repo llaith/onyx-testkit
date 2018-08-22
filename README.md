@@ -2,12 +2,12 @@
 
 A junit rule to run docker containers, based on: https://github.com/geowarin/docker-junit-rule
 
-[![CircleCI](https://circleci.com/gh/llaith/onyx-testkit/tree/master.svg?style=svg&circle-token=16fbebf80d0c0cf291f9faa970f3ed92a4664c9f)](https://circleci.com/gh/llaith/onyx-testkit/tree/master)
 [![Download](https://api.bintray.com/packages/llaith/onyx/onyx-testkit/images/download.svg) ](https://bintray.com/llaith/onyx/onyx-testkit/_latestVersion)
 
 [![GitHub issues](https://img.shields.io/github/issues/llaith/onyx-testkit.svg)](https://github.com/llaith/onyx-testkit/issues)
 [![GitHub license](https://img.shields.io/github/license/llaith/onyx-testkit.svg)](https://github.com/llaith/onyx-testkit/blob/master/LICENSE)
 [![CircleCI](https://img.shields.io/circleci/project/github/RedSparr0w/node-csgo-parser.svg)](https://circleci.com/gh/llaith/onyx-testkit)
+[![CircleCI](https://circleci.com/gh/llaith/onyx-testkit/tree/master.svg?style=svg&circle-token=16fbebf80d0c0cf291f9faa970f3ed92a4664c9f)](https://circleci.com/gh/llaith/onyx-testkit/tree/master)
 
 ## Usage
 
