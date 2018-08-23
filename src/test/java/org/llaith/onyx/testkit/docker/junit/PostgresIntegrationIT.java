@@ -26,7 +26,7 @@ public class PostgresIntegrationIT {
                           .build();
 
     @Test
-    public void testConnectsToPostgres() {
+    public void testConnectsToPostgres() { 
 
         pg.executeSQL(
                 "SELECT 2",
@@ -36,7 +36,7 @@ public class PostgresIntegrationIT {
 
                     while (resultSet.next()) {
 
-                        String val = resultSet.getString(1);
+                        final String val = resultSet.getString(1);
 
                         assertEquals("Select from postgres failed", "2", val);
 

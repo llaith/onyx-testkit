@@ -21,8 +21,8 @@ import static org.slf4j.LoggerFactory.getLogger;
 /**
  *
  */
-public class GenericWaitingStrategies {
-    
+public final class GenericWaitingStrategies {
+
     private static final Logger logger = getLogger(GenericWaitingStrategies.class);
 
     public static <C extends DockerConfig<C,R>, R extends DockerResource<C,R>> WaitingStrategy<C,R> waitForLog(
@@ -77,8 +77,8 @@ public class GenericWaitingStrategies {
         return (resource) -> rethrow(() -> {
 
             logger.debug(format("Waiting for result of: %s from exec of command: %s",
-                                       result,
-                                       Arrays.toString(command)));
+                                result,
+                                Arrays.toString(command)));
 
             final ExecCreation execCreation = resource.client.execCreate(
                     resource.container.id(),
@@ -104,4 +104,6 @@ public class GenericWaitingStrategies {
 
     }
 
+    private GenericWaitingStrategies() { }
+    
 }

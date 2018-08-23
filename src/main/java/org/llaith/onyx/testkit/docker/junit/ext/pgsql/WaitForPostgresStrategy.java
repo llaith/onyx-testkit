@@ -11,7 +11,7 @@ import static org.slf4j.LoggerFactory.getLogger;
 /**
  * Created by psanecki on 22/03/17.
  */
-public class WaitForPostgresStrategy {
+public final class WaitForPostgresStrategy {
     
     private static final Logger logger = getLogger(WaitForPostgresStrategy.class);
 
@@ -47,6 +47,6 @@ public class WaitForPostgresStrategy {
 
     }
 
-    private WaitForPostgresStrategy(){}
+    private WaitForPostgresStrategy() {}
 
 }

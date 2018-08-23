@@ -101,7 +101,7 @@ public class TestUtil {
 
     }
 
-    public static <E> E[] defensiveCopy(E[] arr) {
+    public static <E> E[] defensiveCopy(final E[] arr) {
 
         if (arr == null) throw new IllegalArgumentException("param 'arr' must be provided");
 
@@ -109,7 +109,7 @@ public class TestUtil {
     }
 
     @SuppressWarnings("unchecked")
-    public static <E> E[] defensiveCopy(E[] arr, Class<?> klass) {
+    public static <E> E[] defensiveCopy(final E[] arr, final Class<?> klass) {
 
         if (arr == null) return (E[])Array.newInstance(klass, 0);
 
