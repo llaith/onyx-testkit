@@ -3,53 +3,32 @@
 # Check https://circleci.com/docs/2.0/language-java/ for more details
 #
 version: 2
-  jobs:
-  
-    - build:
-    
-      docker:
-        - image: circleci/openjdk:8-jdk
-        
-      working_directory: ~/repo
-  
-      environment:
-        MAVEN_OPTS: -Xmx3200m
+jobs:
+  build:
+    docker:
+      - image: circleci/openjdk:8-jdk
       
-      steps:
-        - checkout
-  
-        - restore_cache:
-            keys:
-            - v1-dependencies-{{ checksum "pom.xml" }}
-  
-        - run: mvn dependency:go-offline
-  
-        - save_cache:
-            paths:
-              - ~/.m2
-            key: v1-dependencies-{{ checksum "pom.xml" }}
-          
-        - run: mvn -s .circleci/settings.xml integration-test install
-        
-        - run: mvn sonar:sonar -Dsonar.organization=llaith-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=472ddb585abd168d7191ac1db7b896b23fe5a170
-  
-        - persist_to_workspace:
-            <<: *source
+    working_directory: ~/repo
+
+    environment:
+      MAVEN_OPTS: -Xmx3200m
     
-    - deploy:
-    
-        requires:
-          - build
-          
-        filters:
-          branches:
-            only: /^(master|verify)$/
-            
-        steps:
+    steps:
+      - checkout
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "pom.xml" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+
+      - run: mvn dependency:go-offline
+
+      - save_cache:
+          paths:
+            - ~/.m2
+          key: v1-dependencies-{{ checksum "pom.xml" }}
         
-          - attach_workspace:
-              at: .
-              
-          - run:
-              name: Deploy Artifact
-              command: mvn deploy                        
+      # run tests!
+      - run: mvn -s conf/settings.xml integration-test
