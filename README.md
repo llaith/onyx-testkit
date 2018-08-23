@@ -2,11 +2,10 @@
 
 A junit rule to run docker containers, based on: https://github.com/geowarin/docker-junit-rule
 
+[![MIT licensed](https://img.shields.io/github/license/llaith/onyx-testkit.svg)](https://github.com/llaith/onyx-testkit/blob/master/LICENSE)
 [![Download](https://api.bintray.com/packages/llaith/onyx/onyx-testkit/images/download.svg) ](https://bintray.com/llaith/onyx/onyx-testkit/_latestVersion)
-
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/ec7ee50b4f1f48879513be2e07339dad)](https://www.codacy.com/project/llaith/onyx-testkit/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=llaith/onyx-testkit&amp;utm_campaign=Badge_Grade_Dashboard)
 [![GitHub issues](https://img.shields.io/github/issues/llaith/onyx-testkit.svg)](https://github.com/llaith/onyx-testkit/issues)
-[![GitHub license](https://img.shields.io/github/license/llaith/onyx-testkit.svg)](https://github.com/llaith/onyx-testkit/blob/master/LICENSE)
-[![CircleCI](https://img.shields.io/circleci/project/github/RedSparr0w/node-csgo-parser.svg)](https://circleci.com/gh/llaith/onyx-testkit)
 [![CircleCI](https://circleci.com/gh/llaith/onyx-testkit/tree/master.svg?style=svg&circle-token=16fbebf80d0c0cf291f9faa970f3ed92a4664c9f)](https://circleci.com/gh/llaith/onyx-testkit/tree/master)
 
 ## Usage
