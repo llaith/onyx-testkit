@@ -42,7 +42,7 @@ public class PostgresResource extends DockerResource<PostgresConfig,PostgresReso
 
     }
 
-    public PostgresResource(PostgresConfig config) {
+    public PostgresResource(final PostgresConfig config) {
 
         super(config);
 
@@ -80,21 +80,21 @@ public class PostgresResource extends DockerResource<PostgresConfig,PostgresReso
         return String.format(
                 "jdbc:postgresql://%s:%d/%s",
                 this.getContainerHost(),
-                this.getMappedPort(this.config.postgresPort),
+                this.getMappedPort(this.config.getPostgresPort()),
                 this.getDatabaseName());
 
     }
 
     public String getDatabaseName() {
-        return this.config.databaseName;
+        return this.config.getDatabaseName();
     }
 
     public String getUsername() {
-        return this.config.postgresUser;
+        return this.config.getPostgresUser();
     }
 
     public String getPassword() {
-        return this.config.postgresPass;
+        return this.config.getPostgresPass();
     }
 
 }

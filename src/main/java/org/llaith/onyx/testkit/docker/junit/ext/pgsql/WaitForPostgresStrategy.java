@@ -12,16 +12,16 @@ import static org.slf4j.LoggerFactory.getLogger;
  * Created by psanecki on 22/03/17.
  */
 public class WaitForPostgresStrategy {
-
+    
     private static final Logger logger = getLogger(WaitForPostgresStrategy.class);
 
     public static WaitingStrategy<PostgresConfig,PostgresResource> waitForSelect(final String sql) {
 
         return (resource) -> {
 
-            logger.debug("Executing sql: " + sql);
+            logger.debug("Executing sql: {}", sql);
 
-            resource.executeSQL(sql, statement -> logger.debug("Successful execution of sql: " + sql));
+            resource.executeSQL(sql, statement -> logger.debug("Successful execution of sql: {}", sql));
 
         };
 
@@ -37,7 +37,7 @@ public class WaitForPostgresStrategy {
                     "-d", resource.getDatabaseName(),
                     "-c", "select * from (select extname from pg_extension where extname='" + extension + "') as s;"};
 
-            logger.debug("Executing commandline psql: " + Arrays.toString(cmd));
+            if (logger.isDebugEnabled()) logger.debug("Executing commandline psql: {}", Arrays.toString(cmd));
 
             GenericWaitingStrategies
                     .<PostgresConfig,PostgresResource>waitExecResult(cmd, "(1 row)")
@@ -46,5 +46,7 @@ public class WaitForPostgresStrategy {
         };
 
     }
+
+    private WaitForPostgresStrategy(){}
 
 }

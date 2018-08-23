@@ -20,23 +20,23 @@ public abstract class DockerConfig<C extends DockerConfig<C,R>, R extends Docker
 
     private String imageName;
 
-    private Set<String> ports = new HashSet<>();
+    private final Set<String> ports = new HashSet<>();
 
-    private List<String> env = new ArrayList<>();
+    private final List<String> env = new ArrayList<>();
 
-    private String[] cmd;
+    private final List<String> cmd = new ArrayList<>();
 
     private WaitingStrategiesImpl<C,R> waitingStrategies;
 
     @SuppressWarnings("squid:S1313")
-    private static final String INTERNAL_IP = "0.0.0.0"; //NOPMD
+    private static final String INTERNAL_IP = "0.0.0.0";
 
-    public C image(String imageName) {
+    public C image(final String imageName) {
         this.imageName = imageName;
         return this.getThis();
     }
 
-    public C ports(String... ports) {
+    public C ports(final String... ports) {
 
         this.ports.addAll(asList(requireNonNull(ports)));
 
@@ -49,13 +49,13 @@ public abstract class DockerConfig<C extends DockerConfig<C,R>, R extends Docker
         return this.getThis();
     }
 
-    public C env(String... env) {
+    public C env(final String... env) {
         this.env.addAll(asList(requireNonNull(env)));
         return this.getThis();
     }
 
-    public C cmd(String... cmd) {
-        this.cmd = cmd;
+    public C cmd(final String... cmd) {
+        this.cmd.addAll(asList(requireNonNull(cmd)));
         return this.getThis();
     }
 
@@ -118,7 +118,7 @@ public abstract class DockerConfig<C extends DockerConfig<C,R>, R extends Docker
     }
 
     public String[] cmd() {
-        return this.cmd;
+        return this.cmd.toArray(new String[0]);
     }
 
     public WaitingStrategiesImpl<C,R> waitingStrategies() {
@@ -127,7 +127,7 @@ public abstract class DockerConfig<C extends DockerConfig<C,R>, R extends Docker
 
     public ContainerConfig toConfig() {
 
-        Map<String,List<PortBinding>> portBindings = this.ports
+        final Map<String,List<PortBinding>> portBindings = this.ports
                 .stream()
                 .collect(Collectors.toMap(
                         port -> port,
@@ -145,9 +145,9 @@ public abstract class DockerConfig<C extends DockerConfig<C,R>, R extends Docker
                 .networkDisabled(false)
                 .exposedPorts(this.ports);
 
-        if (env != null && !env.isEmpty()) configBuilder.env(env);
+        if (!env.isEmpty()) configBuilder.env(env);
 
-        if (cmd != null && cmd.length > 0) configBuilder.cmd(cmd);
+        if (!cmd.isEmpty()) configBuilder.cmd(cmd);
 
         return configBuilder.build();
 

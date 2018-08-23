@@ -17,11 +17,11 @@ public class UncheckedException extends RuntimeException {
         return new UncheckedException(message, t);
     }
 
-    public UncheckedException(String message) {
+    public UncheckedException(final String message) {
         super(message);
     }
 
-    protected UncheckedException(String message, Throwable cause) {
+    protected UncheckedException(final String message, final Throwable cause) {
         super(message, cause);
     }
 

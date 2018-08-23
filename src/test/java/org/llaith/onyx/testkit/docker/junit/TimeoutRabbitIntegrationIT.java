@@ -9,8 +9,8 @@ import org.junit.runner.notification.Failure;
 
 import java.util.List;
 
-import static org.llaith.onyx.testkit.docker.junit.GenericWaitingStrategies.waitForLog;
 import static org.junit.Assert.assertEquals;
+import static org.llaith.onyx.testkit.docker.junit.GenericWaitingStrategies.waitForLog;
 
 /**
  * Note, bug with recursive
@@ -29,7 +29,7 @@ public class TimeoutRabbitIntegrationIT {
                 .build();
 
         @Test
-        public void testConnectsToDocker() throws Exception {
+        public void testConnectsToDocker() {
 
             assertEquals("Port is incorrect", "5672", rule.getContainerHost());
 
@@ -39,9 +39,9 @@ public class TimeoutRabbitIntegrationIT {
     }
 
     @Test
-    public void testClassruleFailureThrowsTimeout() throws Exception {
+    public void testClassruleFailureThrowsTimeout() {
 
-        Result result = JUnitCore.runClasses(PretendTestClass.class);
+        final Result result = JUnitCore.runClasses(PretendTestClass.class);
 
         final List<Failure> failures = result.getFailures();
 

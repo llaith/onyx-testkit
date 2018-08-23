@@ -28,10 +28,10 @@ public class PostgresConfig extends DockerConfig<PostgresConfig,PostgresResource
 
     }
 
-    String postgresPort; // default postgres is "5432/tcp", but force this to be set for consistency
-    String postgresUser = "postgres";
-    String postgresPass = "";
-    String databaseName = "postgres";
+    private String postgresPort; // default postgres is "5432/tcp", but force this to be set for consistency
+    private String postgresUser = "postgres";
+    private String postgresPass = "";
+    private String databaseName = "postgres";
 
     public PostgresConfig postgresPort(final String postgresPort) {
 
@@ -59,6 +59,22 @@ public class PostgresConfig extends DockerConfig<PostgresConfig,PostgresResource
     public PostgresConfig databaseName(final String databaseName) {
         this.databaseName = requireNonNull(databaseName);
         return this;
+    }
+
+    public String getPostgresPort() {
+        return postgresPort;
+    }
+
+    public String getPostgresUser() {
+        return postgresUser;
+    }
+
+    public String getPostgresPass() {
+        return postgresPass;
+    }
+
+    public String getDatabaseName() {
+        return databaseName;
     }
 
     @Override

@@ -1,4 +1,4 @@
-package org.llaith.onyx.testkit.docker.junit;//NOPMD
+package org.llaith.onyx.testkit.docker.junit;
 
 import com.spotify.docker.client.DockerClient;
 import com.spotify.docker.client.LogStream;
@@ -12,6 +12,7 @@ import java.util.Arrays;
 
 import static com.spotify.docker.client.DockerClient.LogsParam.follow;
 import static com.spotify.docker.client.DockerClient.LogsParam.stdout;
+import static java.lang.String.format;
 import static org.llaith.onyx.testkit.util.TestUtil.readStringFromByteBuffer;
 import static org.llaith.onyx.testkit.util.TestUtil.rethrow;
 import static org.llaith.onyx.testkit.util.TestUtil.rethrowOrReturn;
@@ -20,9 +21,9 @@ import static org.slf4j.LoggerFactory.getLogger;
 /**
  *
  */
-public class GenericWaitingStrategies {//NOPMD
-
-    private static final Logger logger = getLogger(GenericWaitingStrategies.class);//NOPMD
+public class GenericWaitingStrategies {
+    
+    private static final Logger logger = getLogger(GenericWaitingStrategies.class);
 
     public static <C extends DockerConfig<C,R>, R extends DockerResource<C,R>> WaitingStrategy<C,R> waitForLog(
             final String match) {
@@ -75,7 +76,7 @@ public class GenericWaitingStrategies {//NOPMD
 
         return (resource) -> rethrow(() -> {
 
-            logger.debug(String.format("Waiting for result of: %s from exec of command: %s",
+            logger.debug(format("Waiting for result of: %s from exec of command: %s",
                                        result,
                                        Arrays.toString(command)));
 
@@ -91,7 +92,7 @@ public class GenericWaitingStrategies {//NOPMD
 
             logger.trace("Found result: {}", execOutput);
 
-            if (!execOutput.contains(result)) throw new IllegalStateException(String.format(//NOPMD
+            if (!execOutput.contains(result)) throw new IllegalStateException(format(
                     "Expected result :[%s] from command: [%s] not found.",
                     Arrays.toString(command),
                     result));

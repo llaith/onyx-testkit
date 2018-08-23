@@ -2,7 +2,9 @@ package org.llaith.onyx.testkit.util;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.lang.reflect.Array;
 import java.nio.ByteBuffer;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Map;
 import java.util.Objects;
@@ -97,6 +99,21 @@ public class TestUtil {
 
         return new String(bytes);
 
+    }
+
+    public static <E> E[] defensiveCopy(E[] arr) {
+
+        if (arr == null) throw new IllegalArgumentException("param 'arr' must be provided");
+
+        return Arrays.copyOf(arr, arr.length);
+    }
+
+    @SuppressWarnings("unchecked")
+    public static <E> E[] defensiveCopy(E[] arr, Class<?> klass) {
+
+        if (arr == null) return (E[])Array.newInstance(klass, 0);
+
+        return Arrays.copyOf(arr, arr.length);
     }
 
 }

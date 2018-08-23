@@ -7,7 +7,7 @@ import org.llaith.onyx.testkit.docker.junit.ext.pgsql.PostgresResource;
 
 import java.sql.ResultSet;
 
-import static junit.framework.TestCase.assertTrue;
+import static junit.framework.TestCase.assertEquals;
 import static org.llaith.onyx.testkit.docker.junit.GenericWaitingStrategies.waitForPort;
 import static org.llaith.onyx.testkit.docker.junit.ext.pgsql.WaitForPostgresStrategy.waitForSelect;
 import static org.llaith.onyx.testkit.util.TestUtil.rethrow;
@@ -26,7 +26,7 @@ public class PostgresIntegrationIT {
                           .build();
 
     @Test
-    public void testConnectsToPostgres() throws Exception {
+    public void testConnectsToPostgres() {
 
         pg.executeSQL(
                 "SELECT 2",
@@ -38,7 +38,7 @@ public class PostgresIntegrationIT {
 
                         String val = resultSet.getString(1);
 
-                        assertTrue("Select from postgres failed", "2".equals(val));
+                        assertEquals("Select from postgres failed", "2", val);
 
                     }
 

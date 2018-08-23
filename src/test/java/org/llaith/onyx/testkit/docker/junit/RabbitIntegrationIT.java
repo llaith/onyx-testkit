@@ -4,6 +4,9 @@ import com.rabbitmq.client.ConnectionFactory;
 import org.junit.ClassRule;
 import org.junit.Test;
 
+import java.io.IOException;
+import java.util.concurrent.TimeoutException;
+
 import static org.llaith.onyx.testkit.docker.junit.GenericWaitingStrategies.waitForLog;
 
 public class RabbitIntegrationIT {
@@ -17,11 +20,15 @@ public class RabbitIntegrationIT {
                          .build();
 
     @Test
-    public void testConnectsToDocker() throws Exception {
-        ConnectionFactory factory = new ConnectionFactory();
+    public void testConnectsToDocker() throws IOException, TimeoutException {
+
+        final ConnectionFactory factory = new ConnectionFactory();
+
         factory.setHost(rabbitRule.getContainerHost());
         factory.setPort(rabbitRule.getMappedPort("5672/tcp"));
+
         factory.newConnection();
+
     }
 
 }
