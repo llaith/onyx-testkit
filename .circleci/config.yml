@@ -3,7 +3,7 @@
 # Check https://circleci.com/docs/2.0/language-java/ for more details
 #
 version: 2
-jobs:
+jobs2:
   build:
     docker:
       - image: circleci/openjdk:8-jdk
