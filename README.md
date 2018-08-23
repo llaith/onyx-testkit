@@ -2,7 +2,8 @@
 
 A junit rule to run docker containers, based on: https://github.com/geowarin/docker-junit-rule
 
-[![MIT licensed](https://img.shields.io/github/license/llaith/onyx-testkit.svg)](https://github.com/llaith/onyx-testkit/blob/master/LICENSE)
+
+![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg)
 [![Download](https://api.bintray.com/packages/llaith/onyx/onyx-testkit/images/download.svg) ](https://bintray.com/llaith/onyx/onyx-testkit/_latestVersion)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/ec7ee50b4f1f48879513be2e07339dad)](https://www.codacy.com/project/llaith/onyx-testkit/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=llaith/onyx-testkit&amp;utm_campaign=Badge_Grade_Dashboard)
 [![GitHub issues](https://img.shields.io/github/issues/llaith/onyx-testkit.svg)](https://github.com/llaith/onyx-testkit/issues)
