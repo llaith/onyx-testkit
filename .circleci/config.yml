@@ -31,4 +31,4 @@ jobs:
           key: v1-dependencies-{{ checksum "pom.xml" }}
         
       # run tests!
-      - run: mvn -s .circleci/settings.xml integration-test
+      - run: mvn -s .circleci/settings.xml verify -DskipITs=yes

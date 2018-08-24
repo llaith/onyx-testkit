@@ -38,8 +38,6 @@
         <maven-failsafe-plugin>2.20</maven-failsafe-plugin>
         <maven-war-plugin>2.4</maven-war-plugin>
         <maven-source-plugin>2.1.2</maven-source-plugin>
-        <maven-checkstyle-plugin>3.0.0</maven-checkstyle-plugin>
-        <maven-pmd-plugin>3.10.0</maven-pmd-plugin>
         <jacoco-maven-plugin>0.7.9</jacoco-maven-plugin>
 
         <!-- activate findbugs -->
@@ -296,16 +294,6 @@
                     <version>${maven-source-plugin}</version>
                 </plugin>
                 <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-checkstyle-plugin</artifactId>
-                    <version>${maven-checkstyle-plugin}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-pmd-plugin</artifactId>
-                    <version>${maven-pmd-plugin}</version>
-                </plugin>
-                <plugin>
                     <groupId>org.jacoco</groupId>
                     <artifactId>jacoco-maven-plugin</artifactId>
                     <version>${jacoco-maven-plugin}</version>
@@ -404,39 +392,6 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-checkstyle-plugin</artifactId>
-                <!-- override old embedded checkstyle version to latest -->
-                <dependencies>
-                    <dependency>
-                        <groupId>com.puppycrawl.tools</groupId>
-                        <artifactId>checkstyle</artifactId>
-                        <version>${checkstyle.version}</version>
-                    </dependency>
-                </dependencies>
-                <executions>
-                    <execution>
-                        <id>verify</id>
-                        <phase>verify</phase>
-                        <configuration>
-                            <encoding>UTF-8</encoding>
-                            <configLocation>.conf/checkstyle.xml</configLocation>
-                            <consoleOutput>true</consoleOutput>
-                            <failsOnError>true</failsOnError>
-                        </configuration>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-pmd-plugin</artifactId>
             </plugin>
 
             <plugin>
