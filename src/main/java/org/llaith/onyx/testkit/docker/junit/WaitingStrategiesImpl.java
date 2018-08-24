@@ -53,7 +53,7 @@ public class WaitingStrategiesImpl<C extends DockerConfig<C,R>, R extends Docker
     public void waitForContainer(final R resource) {
 
         // abort if no strategies added
-        if (this.waitingStrategies.size() < 1) return;
+        if (this.waitingStrategies.isEmpty()) return;
 
         // get a rate limiter
         final RateLimiter rateLimiter = RateLimiterBuilder

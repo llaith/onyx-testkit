@@ -25,7 +25,7 @@ public class PostgresIntegrationIT {
                           })
                           .build();
 
-    @Test
+    //@Test
     public void testConnectsToPostgres() { 
 
         pg.executeSQL(

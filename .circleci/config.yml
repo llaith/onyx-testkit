@@ -31,4 +31,5 @@ jobs:
           key: v1-dependencies-{{ checksum "pom.xml" }}
         
       # run tests!
-      - run: mvn -s .circleci/settings.xml verify -DskipITs=yes
+      #- run: mvn -s .circleci/settings.xml verify -DskipITs=yes org.jacoco:jacoco-maven-plugin:prepare-agent sonar:sonar -Dsonar.organization=llaith-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=2cc60ca5b2a1acaec5960df59af4f9ad35878fc7
+      - run: mvn -s .circleci/settings.xml clean install sonar:sonar -Dsonar.organization=llaith-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=2cc60ca5b2a1acaec5960df59af4f9ad35878fc7 org.jacoco:jacoco-maven-plugin:prepare-agent 

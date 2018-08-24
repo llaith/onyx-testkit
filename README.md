@@ -6,13 +6,12 @@ A junit rule to run docker containers, based on: https://github.com/geowarin/doc
 [![Download](https://api.bintray.com/packages/llaith/onyx/onyx-testkit/images/download.svg) ](https://bintray.com/llaith/onyx/onyx-testkit/_latestVersion)
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/ec7ee50b4f1f48879513be2e07339dad)](https://www.codacy.com/project/llaith/onyx-testkit/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=llaith/onyx-testkit&amp;utm_campaign=Badge_Grade_Dashboard)
-[![Codacy coverage](https://img.shields.io/codacy/coverage/ec7ee50b4f1f48879513be2e07339dad.svg)](https://app.codacy.com/project/llaith/onyx-testkit/dashboard)
 [![CircleCI](https://circleci.com/gh/llaith/onyx-testkit/tree/master.svg?style=shield&circle-token=16fbebf80d0c0cf291f9faa970f3ed92a4664c9f)](https://circleci.com/gh/llaith/onyx-testkit/tree/master)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/llaith/onyx-testkit.svg)
 ![Github file size](https://img.shields.io/github/repo-size/llaith/onyx-testkit.svg)
 
 [![GitHub issues](https://img.shields.io/github/issues/llaith/onyx-testkit.svg)](https://github.com/llaith/onyx-testkit/issues)
-[![Waffle.io](https://badge.waffle.io/llaith/onyx-testkit.svg?columns=all)](https://waffle.io/llaith/onyx-testkit)
+[![Waffle.io](https://badge.waffle.io/llaith/onyx-testkit.svg?columns=Accepted%2cCompleted)](https://waffle.io/llaith/onyx-testkit)
 
 ## Usage
 
