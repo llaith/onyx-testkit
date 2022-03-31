@@ -59,7 +59,7 @@
         <spotify-docker-client.version>8.9.0</spotify-docker-client.version>
         <ducttape.version>1.0.4</ducttape.version>
         <rabbitmq.version>4.2.0</rabbitmq.version>
-        <postgres.version>42.1.4</postgres.version>
+        <postgres.version>42.3.3</postgres.version>
 
     </properties>
 
